@@ -49,3 +49,7 @@ for (int i = 0; i < 20; i++)
 
 
 
+// Section 1 - MCQ
+// Section 2 - Find the bug, predict the output.
+// Section 3 -  5 Programming questions
+// 2 are on menu selection, 1 patter question, 2 mix of all.
