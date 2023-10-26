@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 // A method is a block of code which only runs when it is called.
 
@@ -111,6 +112,12 @@ namespace HelloWorld
             displayMessage("IS Prime Check");
             bool result = IsPrime(8);
             displayMessage($"{result}");
+
+            displayMessage("Calculate the area of the rectangle");
+            double area = calculateRectangle(12.2, 23.2);
+            int ar = calculateRectangle(10, 10);
+
+            int defaultArea = calculateRectangle();
         }
 
         // array from the user
@@ -150,23 +157,86 @@ namespace HelloWorld
         }
 
         // Question 5: Write a method that takes a string as input and
-        // returns its length (number of characters).
-
+        // returns its length (int) (number of characters). 
+        static int getStringLength(string str)
+        {
+            // int length = str.Length;
+            // return length;
+            return str.Length;
+        }
         // Question 6: Create a method that reverses a given string and
         // returns the reversed string.
+
+        static string reverseString(string str)
+        {
+            char[] ch = str.ToCharArray(); // convert the string to array of characters
+            Array.Reverse(ch); // we use inbuilt function to reverse the array
+            return new string(ch); // we create a new string and pass the character array
+        }
 
         // Question 7: Write a method that takes a temperature in Celsius and
         // converts it to Fahrenheit using the formula: F = C * 9 / 5 + 32.
 
+        static double CelsiusToFarenhiet(double celcius)
+        {
+            return ((celcius * 9) / 5) + 32;
+        }
+
+
         // Question 8: Create a method that takes a positive integer and
-        // checks if it's a palindrome (reads the same forwards and backwards).
+        // checks (Boolean) if it's a palindrome (reads the same forwards and backwards).
+
+        static bool checkPalindrome(int number)
+        {
+            if (number < 1)
+            {
+                return false;
+            }
+            int copy = number;
+            int reverse = 0;
+            while (number > 0)
+            {
+                int digit = number % 10; // extract the last digit.
+                reverse = (reverse * 10) + digit; // *10 to change unit position and add the digit.
+                number = number / 10; // remove the last the digit.
+            }
+            if (copy == reverse)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         // Question 10: Create a method that calculates the area of a rectangle and
         // returns it based on its length and width.
+
+        static double calculateRectangle(double length, double width)
+        {
+            return length * width;
+        }
+
+        static int calculateRectangle(int length, int width)
+        {
+            return length * width;
+        }
+
+        static int calculateRectangle()
+        {
+            return 10 * 10;
+        }
     }
 }
 
 
+// With Method Overloading, multiple methods can have the same name with different parameters:
+/**
+int MyMethod(int x)
+float MyMethod(float x)
+double MyMethod(double x, double y)
+*/
 
 
 
