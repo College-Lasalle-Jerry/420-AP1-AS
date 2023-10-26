@@ -107,6 +107,10 @@ namespace HelloWorld
             int[] array = { 1, 2, 3, 4, 5 }; // 15
             int sum = sumOfArray(array);
             displayMessage($"Sum of array is {sum}");
+
+            displayMessage("IS Prime Check");
+            bool result = IsPrime(8);
+            displayMessage($"{result}");
         }
 
         // array from the user
@@ -121,5 +125,58 @@ namespace HelloWorld
             }
             return sum;
         }
+
+        // Question 4: Create a method that checks if a given number 
+        // is prime and returns a boolean value.
+        // Prime number is a number which is only divisible by 1 and itself.
+        // 5,7,11,13,17,19... are examples.
+
+        // int number 
+        // return type: bool
+
+        static bool IsPrime(int number)
+        {
+            if (number <= 1)
+                return false;
+
+            for (int i = 2; i < number; i++)
+            { // between 2 and number-1
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Question 5: Write a method that takes a string as input and
+        // returns its length (number of characters).
+
+        // Question 6: Create a method that reverses a given string and
+        // returns the reversed string.
+
+        // Question 7: Write a method that takes a temperature in Celsius and
+        // converts it to Fahrenheit using the formula: F = C * 9 / 5 + 32.
+
+        // Question 8: Create a method that takes a positive integer and
+        // checks if it's a palindrome (reads the same forwards and backwards).
+
+        // Question 10: Create a method that calculates the area of a rectangle and
+        // returns it based on its length and width.
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Question 9: Write a method that takes two strings and checks if they are anagrams (contain the same letters in different orders).
+
