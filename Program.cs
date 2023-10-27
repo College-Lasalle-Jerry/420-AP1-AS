@@ -55,14 +55,114 @@ namespace HelloWorld
         }
 
 
-        static void displayMessage(string message)
-        {
-            Console.WriteLine($"{message}");
-        }
+
 
         // factorial 
 
         // int number;
+
+
+
+        //1. method that takes an array of integers and returns the largest number in the array
+        // return type int
+        // an array
+        static int largestNumber(int[] array)
+        {
+            int max = int.MinValue; //(- Infinity)
+
+            foreach (int element in array)
+            {
+                if (element > max)
+                {
+                    max = element;
+                }
+            }
+            return max;
+        }
+
+        // 2. method to print the fibonacci series.
+        // return type: void ()
+        // int n - the limit of the fibonacci series.
+
+        static void displayMessage(string message)
+        {
+            Console.WriteLine($"{message}");
+        }
+        static void printFibonacci(int n)
+        {
+            int first = 0, second = 1;
+            displayMessage("Fibonacci Series");
+            for (int i = 0; i <= n; i++)
+            {
+                Console.Write(first);
+                int next = first + second;
+                first = second;
+                second = next;
+            }
+            displayMessage(""); //move to the next line.
+        }
+
+        // 3. method that accepts a number as input and prints
+        // the multiplication table for that number up to a specified range. 
+        // return type: void()
+        // user: number, range
+        static void printMultiplicationTable(int number, int range)
+        {
+            for (int i = 1; i <= range; i++)
+            {
+                displayMessage($"{i} * {number} = {i * number}");
+            }
+        }
+
+        // 4. method that takes an array of integers and 
+        // returns the average (mean) of the numbers in the array. 
+        // return type: double
+        // user: array[] integers
+
+        static double getArrayAverage(int[] array)
+        {
+            int sum = 0;
+            foreach (int element in array)
+            {
+                sum = sum + element;
+            }
+            return (sum / array.Length);
+        }
+
+        // 5.  method that takes a string and counts the number of 
+        // vowels (A, E, I, O, U) in the string and returns the count.
+        // return type: int
+        // user: string
+        static int countVowels(string str)
+        {
+            str = str.ToLower();
+            int count = 0;
+            // hello - string
+            // ['h', 'e', 'l', 'l', 'o']
+            // Method 1
+            foreach (char ch in str)
+            {
+                if ("aeiou".Contains(ch))
+                {
+                    count++;
+                }
+            }
+            // Method 2
+            // for (int i = 0; i < str.Length; i++)
+            // {
+            //     if ("aeiou".Contains(str[i]))
+            //     {
+            //         count++;
+            //     }
+            // }
+            return count;
+        }
+
+        // 6. method that checks if a number is a strong number (the sum of factorials of its
+        // digits is equal to the number itself) and returns a boolean value.
+        // return type: bool
+        // user input: int
+        // 145 => 1! + 4! + 5! => 1 + 24 + 125 => 145 
 
         static int getFactorial(int number)
         {
@@ -73,6 +173,127 @@ namespace HelloWorld
             }
             return fact;
         }
+
+        static bool checkStrongNumber(int number)
+        {
+            int copy = number;
+            int sum = 0;
+            while (number > 0)
+            {
+                int digit = number % 10; // extract the last digit.
+                sum = sum + getFactorial(digit); // add the factorial to the sum.
+                number = number / 10; // remove the last digit.
+            }
+
+            // if (copy != sum)
+            // {
+            //     return false;
+            // }
+            // return true;
+            // return copy == sum ? true : false;
+            return copy == sum; // true other false
+        }
+
+        //7. method that takes a string and checks if it's a pangram
+        // (contains all letters of the alphabet at least once,
+        // see the explanation below) and returns a boolean value.  
+        // return type: bool
+        // user: string
+        static bool checkPangram(string str)
+        {
+            str = str.ToLower();
+            foreach (char ch in "acbdefghijklmnopqrstuvwxyz")
+            {
+                if (!str.Contains(ch))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //8.  method that takes a number as input and checks if it's a happy number (a number that eventually reaches 1 when
+        // replaced by the sum of the square of each digit) and returns a boolean value. 
+        // sum of squares of the number
+        // return type: int
+        // user : int number
+        static int getSumOfSquares(int number)
+        {
+            int sum = 0;
+            while (number > 0)
+            {
+                int digit = number % 10;
+                sum = sum + (digit * digit);
+                number = number / 10;
+            }
+            return sum;
+        }
+
+        // code happy number
+        // return type: bool
+        // user : int number
+        static bool checkHappyNumber(int number)
+        {
+            // 19
+            int sum = number;
+            int cycleDetection = number;
+            while (sum != 1 && cycleDetection != 4)
+            {
+                sum = getSumOfSquares(sum);
+
+                cycleDetection = getSumOfSquares(getSumOfSquares(cycleDetection));
+                // 19
+                // sum =  1 + 81 = 82;
+                // get square -> 82
+                // get square -> 82 => 64 + 4=> 68
+
+                // sum -> 82 => 68
+                // get square -> 68 -> 36 + 64 -> 100
+                // get square -> 100 -> 1 + 0 + 0 -> 1
+
+                // sum -> 68 => 36 + 64 => 100
+                // get square -> 1 -> 1
+                // get square -> 1-> 1
+
+                // sum -> 100 => 1 + 0 + 0 => 1
+                // get square -> 1 -> 1
+                // get square -> 1 -> 1
+
+            }
+
+            return sum == 1;
+        }
+
+        // 9. method that accepts a list (array) of integers and 
+        // returns a new list (array) containing only the even numbers from the original list (array).
+        // return type: int[] array
+        // user input: int[] array
+
+        static int[] filterEvenNumbers(int[] array)
+        {
+            int evenNoCount = 0;
+            foreach (int element in array)
+            {
+                if (element % 2 == 0)
+                {
+                    evenNoCount++;
+                }
+            }
+
+            int[] evenElements = new int[evenNoCount];
+            int index = 0;
+            foreach (int element in array)
+            {
+                if (element % 2 == 0)
+                {
+                    evenElements[index] = element;
+                    index++;
+                }
+            }
+            return evenElements;
+        }
+
+
 
 
         static void Main(string[] args) // Main function is the entry point of the application.
