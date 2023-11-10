@@ -1,12 +1,12 @@
+C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.GeneratedMSBuildEditorConfig.editorconfig
+C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.AssemblyInfoInputs.cache
+C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.AssemblyInfo.cs
+C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.csproj.CoreCompileInputs.cache
 C:\.net programming\420-AP1-AS\bin\Debug\net7.0\420-AP1-AS.exe
 C:\.net programming\420-AP1-AS\bin\Debug\net7.0\420-AP1-AS.deps.json
 C:\.net programming\420-AP1-AS\bin\Debug\net7.0\420-AP1-AS.runtimeconfig.json
 C:\.net programming\420-AP1-AS\bin\Debug\net7.0\420-AP1-AS.dll
 C:\.net programming\420-AP1-AS\bin\Debug\net7.0\420-AP1-AS.pdb
-C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.GeneratedMSBuildEditorConfig.editorconfig
-C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.AssemblyInfoInputs.cache
-C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.AssemblyInfo.cs
-C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.csproj.CoreCompileInputs.cache
 C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.dll
 C:\.net programming\420-AP1-AS\obj\Debug\net7.0\refint\420-AP1-AS.dll
 C:\.net programming\420-AP1-AS\obj\Debug\net7.0\420-AP1-AS.pdb
