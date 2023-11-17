@@ -33,9 +33,6 @@
 // This process is continued until the key is found or the total search space is exhausted.
 
 
-
-using System.Runtime.InteropServices;
-
 static int BinarySearchFunction(int[] array, int searchElement)
 {
     int left = 0, right = array.Length - 1;
@@ -63,7 +60,7 @@ static int BinarySearchFunction(int[] array, int searchElement)
     return -1; // if no element is found we return -1
 }
 
-int[] array = { -1, 2, 4, 10, 15, 23 };
+
 
 // i will terenay operators to print result;
 
@@ -168,3 +165,34 @@ static bool searchStrings(String[] array, String target)
 //2. factorial
 // 3. check if target is found. 
 // replce value accordinly.
+
+int[] array = { -1, 2, 4, 10, 15, 23 };
+int target = 100;
+int index = BinarySearchFunction(array, target);
+
+
+static int getFactorial(int num)
+{
+    int fact = 1;
+    for (int i = 1; i <= num; i++)
+    {
+        fact = fact * i;
+    }
+    return fact;
+}
+if (index < 0)
+{
+    Console.WriteLine("Element not Found!");
+}
+else
+{
+    int factorial = getFactorial(target);
+    array[index] = factorial;
+    foreach (int element in array)
+    {
+        Console.WriteLine(element);
+    }
+}
+
+// To implement Binary Search, you need a sorted array.
+// Return - index positon or a boolean value
