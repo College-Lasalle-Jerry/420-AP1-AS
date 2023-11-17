@@ -158,3 +158,13 @@ static bool searchStrings(String[] array, String target)
     }
     return false;
 }
+
+// Q. Use Binary Search to search for an element in integer array.
+// If found replace the value with the factorial of the number,
+// If not found display a message stating not found.
+
+// hint - 2 functions, 
+// 1. Binary Search
+//2. factorial
+// 3. check if target is found. 
+// replce value accordinly.
