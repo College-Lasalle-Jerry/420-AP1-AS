@@ -34,6 +34,8 @@
 
 
 
+using System.Runtime.InteropServices;
+
 static int BinarySearchFunction(int[] array, int searchElement)
 {
     int left = 0, right = array.Length - 1;
@@ -65,4 +67,94 @@ int[] array = { -1, 2, 4, 10, 15, 23 };
 
 // i will terenay operators to print result;
 
-Console.WriteLine(BinarySearchFunction(array, 15) == -1 ? "Element not Found" : "Element Found!");
+// Console.WriteLine(BinarySearchFunction(array, 15) == -1 ? "Element not Found" : "Element Found!");
+
+
+// Compare Characters
+// https://yorktown.cbe.wwu.edu/sandvig/shared/asciicodes.aspx
+
+// A-Z => 65 - 90
+// a-z => 97 - 122
+
+// char ch = 'b';
+// Console.WriteLine('a' > 'A'); // true or false??
+
+
+
+
+// Binary Search - Characters
+
+char[] characterArray = { 'A', 'B', 'C', 'Z', 'b', 'd', 'g', 'z' };
+// search -> b 
+
+// return is boolean
+static bool checkCharacter(char[] chars, char search)
+{
+
+    //Type your code here.
+    int left = 0, right = chars.Length - 1;
+    // while loop
+
+    while (left <= right) // condition is met.
+    {
+        int middle = left + (right - left) / 2;
+        // to avoid overflow.
+        if (chars[middle] == search)
+        {
+            return true;
+        }
+        if (search > chars[middle])
+        {
+            left = middle + 1; // middle is already checked
+        }
+        else
+        {
+            right = middle - 1; // // middle is already checked
+        }
+    }
+    return false;
+}
+
+
+Console.WriteLine(checkCharacter(characterArray, 'b'));
+
+
+// Compare Strings - comparing two strings is based on the dictionary concept.
+
+String s1 = "apple";
+String s2 = "apple";
+
+Console.WriteLine(string.Compare(s2, s1));
+// -1 , s1 is bigger.
+// 1, s2 is bigger.
+// 0, both are equal.
+
+// Binary Search - Strings
+
+string[] sortedStringArray = { "apple", "banana", "cherry", "date", "fig", "grape", "kiwi" };
+
+static bool searchStrings(String[] array, String target)
+{
+    // Your code will here.
+
+    int left = 0, right = array.Length - 1;
+    while (left <= right)
+    {
+        int middle = left + (right - left) / 2;// to avoid overflow problems.
+        int comparison = string.Compare(array[middle], target);
+        if (comparison == 0)
+        {
+            return true;
+        }
+        // target is greater
+        if (comparison < 0)
+        {
+            left = middle + 1;
+        }
+        else
+        {
+            right = middle - 1;
+        }
+    }
+    return false;
+}
