@@ -75,3 +75,14 @@ StringBubbleSort(StringArray);
 
 Console.WriteLine("After Sort => " + string.Join(",", StringArray));
 
+
+// You need to Sort this Array (Bubble Sort)
+int[] arrayInteger = { 55, 43, 32, 10, -1, -20, 5 };
+// Perform Binary Search to check if element 10 is present.
+// if 10 is present, replace the number with, the number of divisors.
+
+// number of divisor -> 1,2,5,10 (4)
+
+
+// if 32 is present, replace the number with, the sum of all the divisors
+// 32 -> 1,2,4,8,16,32 -> 63
