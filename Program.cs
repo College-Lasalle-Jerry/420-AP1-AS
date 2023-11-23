@@ -46,5 +46,17 @@ Console.WriteLine("After Sort => " + string.Join(',', array));
 // <0 (str2 is larger)
 // ==0 (st1 and str2 is same.)
 
+void StringBubbleSort(string[] array)
+{
+    // your code here.
+}
 
+string[] StringArray = { "Apple", "Samsung", "Plum", "Asus", "Lasalle", "apple", "Toshiba" };
+
+
+Console.WriteLine("Before Sort => " + string.Join(",", StringArray));
+
+StringBubbleSort(StringArray);
+
+Console.WriteLine("After Sort => " + string.Join(",", StringArray));
 
