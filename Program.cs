@@ -48,7 +48,22 @@ Console.WriteLine("After Sort => " + string.Join(',', array));
 
 void StringBubbleSort(string[] array)
 {
+
+    //Console.WriteLine("a -> " + (int)'a' + " \n A-> " + (int)'A');
     // your code here.
+    int n = array.Length;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            // check
+            if (string.Compare(array[j], array[j + 1], StringComparison.Ordinal) > 0)
+            {
+                (array[j], array[j + 1]) = (array[j + 1], array[j]);
+            }
+        }
+    }
 }
 
 string[] StringArray = { "Apple", "Samsung", "Plum", "Asus", "Lasalle", "apple", "Toshiba" };
