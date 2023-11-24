@@ -1,0 +1,30 @@
+Selection Sort Algorithm:
+
+1. Start with the first element as the minimum (considering it as the only element in the sorted portion).
+
+2. Iterate through the unsorted portion to find the minimum element.
+    a. For each iteration, compare the current element with the minimum element.
+    b. If a smaller element is found, update the minimum element.
+
+3. Swap the minimum element with the first element of the unsorted portion.
+
+4. Move the boundary between the sorted and unsorted portions one element to the right.
+
+5. Repeat steps 1-4 until the entire array is sorted.
+
+Pseudocode:
+
+for i from 0 to n-1:
+    // Assume the current index is the minimum
+    minIndex = i
+    
+    // Iterate through the unsorted portion
+    for j from i+1 to n:
+        // If a smaller element is found, update the minimum index
+        if array[j] < array[minIndex]:
+            minIndex = j
+    
+    // Swap the minimum element with the first element of the unsorted portion
+    swap(array[i], array[minIndex])
+
+// The array is now sorted.

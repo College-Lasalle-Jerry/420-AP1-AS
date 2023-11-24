@@ -86,3 +86,5 @@ int[] arrayInteger = { 55, 43, 32, 10, -1, -20, 5 };
 
 // if 32 is present, replace the number with, the sum of all the divisors
 // 32 -> 1,2,4,8,16,32 -> 63
+
+
