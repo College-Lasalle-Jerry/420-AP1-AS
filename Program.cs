@@ -1,90 +1,76 @@
-﻿void BubbleSort(int[] array)
+﻿// Write a function that takes a non-empty of distinct integers and a target sum. (Use while loop) - O(n) Hint Array.Sort(array); 
+
+// Array = [3,5, -4,8,11,1, -1,6] 
+
+// Target Sum = 10 
+
+// Output = [-1,11] // the order can be reversed. 
+
+
+static int[] Sum(int[] array, int targetSum)
 {
-    int n = array.Length;
-    for (int i = 0; i < n - 1; i++)
+
+    Array.Sort(array);
+    int left = 0;
+    int right = array.Length - 1;
+    while (left < right)
     {
-        for (int j = 0; j < n - i - 1; j++)
+        int currentSum = array[left] + array[right];
+        if (currentSum == targetSum)
         {
-            // check of the array[j] > array[j+1]
-            if (array[j] > array[j + 1])
-            {
-                // swap the elements.
-                // Method 1
-                // int temp = array[j];
-                // array[j] = array[j + 1];
-                // array[j + 1] = temp;
-
-
-                // Method 2 - Using reference.
-                // Swap(ref array[j], ref array[j + 1]);
-
-                // Method 3 - Simple Redirection
-                (array[j], array[j + 1]) = (array[j + 1], array[j]);
-            }
+            return new int[] { array[left], array[right] };
+        }
+        if (currentSum > targetSum)
+        {
+            right--;
+        }
+        if (currentSum < targetSum)
+        {
+            left++;
         }
     }
+    return new int[0];
 }
 
-void Swap(ref int a, ref int b)
+int[] sum = { 3, 5, -4, 8, 11, 1, -1, 6 };
+
+int[] result = Sum(sum, 10);
+
+Console.WriteLine(string.Join(",", result));
+
+
+// Write a function that takes in a non-empty array and returns an array of the same length where each element in the output array is the product of each of the other elements in the input array. (Use For Loops) O(n) 
+
+// Array = [5,1,4,2]
+
+// Output = [8, 40, 10, 20] 
+
+
+static int[] Products(int[] array)
 {
-    int temp = a;
-    a = b;
-    b = temp;
-}
+    int[] products = new int[array.Length];
 
+    int runningProduct = 1;
 
-int[] array = { 88, 11, 5, -1, 0, 64, 10 };
-// Shorthand to print all the elements in an array.
-Console.WriteLine("Before Sort => " + string.Join(',', array));
-BubbleSort(array);
-Console.WriteLine("After Sort => " + string.Join(',', array));
-
-
-// Strings 
-// Hint - string.compare(str1,str2)
-// >0 (str1 is larger)
-// <0 (str2 is larger)
-// ==0 (st1 and str2 is same.)
-
-void StringBubbleSort(string[] array)
-{
-
-    //Console.WriteLine("a -> " + (int)'a' + " \n A-> " + (int)'A');
-    // your code here.
-    int n = array.Length;
-
-    for (int i = 0; i < n - 1; i++)
+    // for loop in straight order
+    for (int i = 0; i < array.Length; i++)
     {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            // check
-            if (string.Compare(array[j], array[j + 1], StringComparison.Ordinal) > 0)
-            {
-                (array[j], array[j + 1]) = (array[j + 1], array[j]);
-            }
-        }
+        products[i] = runningProduct;
+        runningProduct *= array[i];
     }
+    runningProduct = 1;
+    // for loop in reverse order
+    for (int i = array.Length - 1; i >= 0; i--)
+    {
+        products[i] *= runningProduct;
+        runningProduct *= array[i];
+    }
+    return products;
 }
 
-string[] StringArray = { "Apple", "Samsung", "Plum", "Asus", "Lasalle", "apple", "Toshiba" };
+int[] products = { 5, 1, 4, 2 };
 
+int[] result1 = Products(products);
 
-Console.WriteLine("Before Sort => " + string.Join(",", StringArray));
-
-StringBubbleSort(StringArray);
-
-Console.WriteLine("After Sort => " + string.Join(",", StringArray));
-
-
-// You need to Sort this Array (Bubble Sort)
-int[] arrayInteger = { 55, 43, 32, 10, -1, -20, 5 };
-// Perform Binary Search to check if element 10 is present.
-// if 10 is present, replace the number with, the number of divisors.
-
-// number of divisor -> 1,2,5,10 (4)
-
-
-// if 32 is present, replace the number with, the sum of all the divisors
-// 32 -> 1,2,4,8,16,32 -> 63
-
+Console.WriteLine(string.Join(",", result1));
 
