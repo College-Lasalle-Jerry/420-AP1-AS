@@ -25,6 +25,19 @@
 static void StringSelectionSort(string[] array)
 {
     // Your code here.
+    int n = array.Length;
+    for (int i = 0; i < n; i++)
+    {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (string.Compare(array[j], array[minIndex], StringComparison.Ordinal) < 0)
+            {
+                minIndex = j;
+            }
+        }
+        (array[i], array[minIndex]) = (array[minIndex], array[i]);
+    }
 }
 
 
