@@ -22,10 +22,17 @@
 }
 
 
-int[] array = { 64, 25, 12, 22, 11 };
+static void StringSelectionSort(string[] array)
+{
+    // Your code here.
+}
 
+
+// int[] array = { 64, 25, 12, 22, 11 };
+
+string[] array = { "appLE", "aPPle", "Samsung", "Apple", "GooseBerry", "Cherry" };
 Console.WriteLine("Original Array: " + string.Join(", ", array));
 
-SelectionSort(array);
+StringSelectionSort(array);
 
 Console.WriteLine("Sorted Array: " + string.Join(", ", array));
